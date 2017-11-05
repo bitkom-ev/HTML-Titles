@@ -5,32 +5,33 @@
  * Contains hooks of html_titles.
  */
 
-use Drupal\Core\Render\Element;
-use Drupal\Core\Url;
 use Drupal\Core\Render\Markup;
 
 /**
  * Implements hook_node_presave().
  */
 function html_titles_node_presave(\Drupal\Core\Entity\EntityInterface $node) {
-    
-    $s = Markup::create($node->getTitle());
-    $node->setTitle($s);
+
+  $s = Markup::create($node->getTitle());
+  $node->setTitle($s);
 }
+
 /**
  * Implements hook_theme_registry_alter().
  */
+
 function html_titles_theme_registry_alter(&$theme_registry) {
-    
-    $theme_registry['field__node__title']['path']= drupal_get_path('module', 'html_titles') . '/templates';
+
+  $theme_registry['field__node__title']['path'] = drupal_get_path('module', 'html_titles') . '/templates';
 }
 /**
  * Implements hook_preprocess_field().
  */
-function  html_titles_preprocess_field(&$variables) {
-    $node = \Drupal::routeMatch()->getParameter('node');
-    if ($node) {
-        $s = Markup::create($variables['element']['#object']->title->getString());
-        $variables['tit_h'] = $s;
-    }
+function html_titles_preprocess_field(&$variables) {
+
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node) {
+    $s = Markup::create($variables['element']['#object']->title->getString());
+    $variables['tit_h'] = $s;
+  }
 }
