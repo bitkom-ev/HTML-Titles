@@ -19,11 +19,11 @@ function html_titles_node_presave(\Drupal\Core\Entity\EntityInterface $node) {
 /**
  * Implements hook_theme_registry_alter().
  */
-
 function html_titles_theme_registry_alter(&$theme_registry) {
 
   $theme_registry['field__node__title']['path'] = drupal_get_path('module', 'html_titles') . '/templates';
 }
+
 /**
  * Implements hook_preprocess_field().
  */
@@ -34,4 +34,12 @@ function html_titles_preprocess_field(&$variables) {
     $s = Markup::create($variables['element']['#object']->title->getString());
     $variables['tit_h'] = $s;
   }
+}
+
+/*
+ * Implements hook_preprocess_block().
+ */
+function html_titles_preprocess_block(&$variables) {
+
+  $variables['label'] = Markup::create($variables['label']);
 }
