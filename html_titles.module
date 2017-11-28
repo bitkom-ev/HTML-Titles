@@ -52,7 +52,7 @@ function html_titles_preprocess_page_title(&$variables) {
   $current_path = \Drupal::service('path.current')->getPath();
   if (strpos($current_path, 'term') !== FALSE) {
     if (array_key_exists('#markup', $variables['title'])) {
-      $variables['title']['#markup'] = t(htmlspecialchars_decode($variables['title']['#markup']));
+      $variables['title']['#markup'] = Markup::create(htmlspecialchars_decode($variables['title']['#markup']));
     }
   }
 }
