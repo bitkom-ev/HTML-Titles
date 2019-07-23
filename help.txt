@@ -1,0 +1,23 @@
+Help Html Titles
+----------
+
+Es jetzt möglich normale HTML-Tags in Titel-Felder der folgenden Inhaltstypen einzutragen & anzuzeigen:
+	Artikel
+	Firma
+	Gremium
+	Job
+	Kontakt
+	Press Release
+	Publikation
+	Teaser
+	Termin
+	Webform
+	Übersicht
+
+Block-Titel & Taxonomy Titel gehen auch.
+
+
+Tiles / Bausteine gehen (noch) nicht!
+
+
+
